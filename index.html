@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilyas Hassoun | E-Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --card-bg: #ffffff;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 2px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        h3.section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Education & Experience Timeline */
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects */
+        .project-card {
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: #e1f0fa;
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <img src="photo.jpg" alt="Ilyas Hassoun" class="hero-img">
+            <div class="hero-text">
+                <h1>Ilyas Hassoun</h1>
+                <h2>Electronics, Electrical Energy & Automation Student</h2>
+                <p>From El Jadida, Morocco to Toulouse. Passionate about the development of sustainable energy.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ilyas-hassoun-b43b93430/" target="_blank">LinkedIn</a>
+                    <a href="mailto:hassounilyas067@gmail.com">Email</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h3 class="section-title">Welcome</h3>
+            <p>Welcome! I'm Ilyas, a first-year student in Electronics, Electrical Energy and Automation at ENSEEIHT (Toulouse INP).</p>
+            <br>
+            <p>After completing two years of intensive MP preparatory classes at Lycée Mohammed V in Casablanca, Morocco, I moved to Toulouse to pursue my ambition of becoming an internationally minded engineer.</p>
+            <br>
+            <p>In this e-portfolio, you will discover my academic journey, engineering projects, international experience, personal commitments, extracurricular activities, and professional documents.</p>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h3 class="section-title">Academic Path</h3>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2026 - Present</div>
+                <div class="timeline-title">Engineering Degree, Electronics, Electrical Energy & Automation</div>
+                <div class="timeline-subtitle">ENSEEIHT, Toulouse INP - Toulouse, France</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2026</div>
+                <div class="timeline-title">CPGE MP Track (Advanced Mathematics & Physics)</div>
+                <div class="timeline-subtitle">Lycée Mohamed V - Casablanca, Morocco</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2024</div>
+                <div class="timeline-title">Moroccan Baccalaureate, Mathematical Sciences B</div>
+                <div class="timeline-subtitle">Lycée Technique Errazi - El Jadida, Morocco (Highest Honours)</div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h3 class="section-title">Engineering Projects</h3>
+            
+            <div class="project-card">
+                <div class="project-title">Hysteresis Motor: Optimization of Magnetization Cycles</div>
+                <div class="timeline-date">2025 - 2026</div>
+                <p style="margin-top: 10px;">Simulation of a hysteresis motor to find the optimal compromise between hysteresis losses and useful mechanical power. The study focuses on determining the optimal rotor dimensions, selecting the best magnetic material, and identifying the ideal supply frequency to maximize overall efficiency.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Electromagnetism</span>
+                    <span class="tech-tag">Material Physics</span>
+                    <span class="tech-tag">Mathematical Modeling</span>
+                </div>
+                <a href="tipe_moteur_hysteresis.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & MOBILITY SECTION -->
+        <section id="experience">
+            <h3 class="section-title">Experience & Mobility</h3>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Summer Job</div>
+                <div class="timeline-title">Sales & Client Relations Assistant</div>
+                <div class="timeline-subtitle">Local Business, Morocco</div>
+                <p>Assisted in managing short-term apartment rentals. Developed strong skills in sales, negotiation, and persuasion to optimize occupancy rates and ensure client satisfaction.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">International Mobility</div>
+                <div class="timeline-title">Semester Exchange (Goal)</div>
+                <div class="timeline-subtitle">English-Speaking Country</div>
+                <p>As an already internationally minded student, I aim to spend a semester in an English-speaking country to further develop my cross-cultural communication skills and technical vocabulary.</p>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h3 class="section-title">Skills & Interests</h3>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h4>Hard Skills</h4>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>C</li>
+                        <li>Arduino</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1.5rem;">Languages</h4>
+                    <ul class="skill-list">
+                        <li>Arabic (Native)</li>
+                        <li>French (Fluent)</li>
+                        <li>English (Professional)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul class="skill-list">
+                        <li>Adaptability</li>
+                        <li>Autonomy & Teamwork</li>
+                        <li>Perseverance</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1.5rem;">Interests</h4>
+                    <ul class="skill-list">
+                        <li>Swimming</li>
+                        <li>Football</li>
+                        <li>Goal: Fluency in 3 languages</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
